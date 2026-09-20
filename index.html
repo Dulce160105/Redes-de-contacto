@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRINTING BLANKS | Blanks & Estampados</title>
+    <!-- Tailwind CSS para diseño moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        skyLight: '#f0f9ff',
+                        skyBase: '#e0f2fe',
+                        skyDeep: '#bae6fd',
+                        skyText: '#0284c7',
+                        skyDark: '#0369a1'
+                    },
+                    boxShadow: {
+                        'neumorphic': 'var(--shadow-main, 12px 12px 24px #cbd5e1, -12px -12px 24px #ffffff)',
+                        'neumorphic-sm': 'var(--shadow-sm, 6px 6px 12px #cbd5e1, -6px -6px 12px #ffffff)',
+                        'neumorphic-inset': 'var(--shadow-inset, inset 4px 4px 8px #cbd5e1, inset -4px -4px 8px #ffffff)',
+                        'neumorphic-btn': 'var(--shadow-btn, 8px 8px 16px #cbd5e1, -8px -8px 16px #ffffff)',
+                        'neumorphic-btn-hover': 'var(--shadow-btn-hover, 4px 4px 8px #cbd5e1, -4px -4px 8px #ffffff)',
+                        'neumorphic-btn-active': 'inset 4px 4px 8px #94a3b8, inset -4px -4px 8px #ffffff',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f9ff;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease;
+        }
+
+        @keyframes flyInZoom {
+            0% {
+                opacity: 0;
+                transform: perspective(1000px) translateZ(-600px) translateY(50px) rotateX(200deg);
+            }
+            100% {
+                opacity: 1;
+                transform: perspective(1000px) translateZ(0) translateY(0) rotateX(0deg);
+            }
+        }
+
+        .animate-fly-in {
+            animation: flyInZoom 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes subtleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .floating-avatar {
+            animation: subtleFloat 4s ease-in-out infinite;
+        }
+
+        .neumorphic-link {
+            transition: transform 0.25s ease, box-shadow 0.5s ease;
+        }
+        .neumorphic-link:hover {
+            transform: translateY(-3px);
+        }
+        .neumorphic-link:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-6 text-slate-700" id="mainBody">
+
+    <!-- Notificación flotante de copiado -->
+    <div id="copyToast" class="fixed top-6 bg-slate-900 text-white px-5 py-2.5 rounded-2xl shadow-xl text-sm font-semibold opacity-0 pointer-events-none transition-all duration-300 z-50 transform -translate-y-4">
+        <i class="fa-solid fa-check-circle text-sky-400 mr-2"></i> ¡Correo copiado al portapapeles!
+    </div>
+
+    <div id="mainCard" class="w-full max-w-md bg-skyLight rounded-[2.5rem] p-6 sm:p-8 shadow-neumorphic animate-fly-in border border-white/80 relative transition-all duration-500">
+        
+        <div class="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-1.5 bg-slate-300/50 rounded-full"></div>
+
+        <!-- Encabezado del Perfil -->
+        <div class="flex flex-col items-center text-center mt-2">
+            <div id="avatarBox" class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-2 bg-skyLight shadow-neumorphic mb-4 floating-avatar transition-all duration-500">
+                <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400&auto=format&fit=crop&q=80" alt="Printing Blanks Logo" class="w-full h-full object-cover rounded-full shadow-neumorphic-inset">
+                <div class="absolute bottom-1 right-1 bg-sky-500 text-white p-1.5 rounded-full shadow-md text-xs">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-800 tracking-tight drop-shadow-sm">
+                PRINTING BLANKS
+            </h1>
+            <p class="text-sm font-semibold text-sky-600 mt-1">
+                @printingblanks
+            </p>
+        </div>
+
+        <!-- Mensaje de Bienvenida -->
+        <div id="welcomeBox" class="my-6 bg-skyLight rounded-2xl p-5 shadow-neumorphic-inset border border-white/60 text-center relative overflow-hidden transition-all duration-500">
+            <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-sky-200/30 rounded-full blur-xl"></div>
+            <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-medium relative z-10">
+                <span class="text-sky-600 font-bold">💥 ¿Cansado de acabados simples en tus prendas y de llevar lo mismo que todos?</span> Experimenta la calidad en estampados personalizados a tu gusto. Diseñamos tu idea y la estampamos en productos de calidad que hablan por ti... <span class="text-sky-600 font-bold">¡Haz clic abajo, contáctanos y solicita tus productos antes de que se agote el stock! 🚀🔥</span>
+            </p>
+        </div>
+
+        <div class="space-y-4 my-6">
+
+            <!-- 1. WHATSAPP -->
+            <a href="https://wa.me/message/XEL3BEGGH3HUD1" target="_blank" rel="noopener noreferrer" 
+               class="social-btn neumorphic-link flex items-center justify-between p-4 rounded-2xl bg-skyLight shadow-neumorphic-btn hover:shadow-neumorphic-btn-hover active:shadow-neumorphic-btn-active group">
+                <div class="flex items-center space-x-4">
+                    <div class="icon-box w-11 h-11 rounded-xl bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-emerald-600 text-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="font-bold text-slate-800 text-base">WhatsApp Directo</h2>
+                        <p class="text-xs text-slate-500 font-medium">Cotiza tus blanks ahora</p>
+                    </div>
+                </div>
+                <div class="arrow-box w-8 h-8 rounded-full bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-sky-600 text-xs">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 2. INSTAGRAM -->
+            <a href="https://www.instagram.com/blanksprinting/" target="_blank" rel="noopener noreferrer" 
+               class="social-btn neumorphic-link flex items-center justify-between p-4 rounded-2xl bg-skyLight shadow-neumorphic-btn hover:shadow-neumorphic-btn-hover active:shadow-neumorphic-btn-active group">
+                <div class="flex items-center space-x-4">
+                    <div class="icon-box w-11 h-11 rounded-xl bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-pink-600 text-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="font-bold text-slate-800 text-base">Instagram</h2>
+                        <p class="text-xs text-slate-500 font-medium">Mira nuestro catálogo de prendas</p>
+                    </div>
+                </div>
+                <div class="arrow-box w-8 h-8 rounded-full bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-sky-600 text-xs">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 3. TIKTOK -->
+            <a href="https://www.tiktok.com/@printingblanks?_r=1&_t=ZS-99sNSiab5SS" target="_blank" rel="noopener noreferrer" 
+               class="social-btn neumorphic-link flex items-center justify-between p-4 rounded-2xl bg-skyLight shadow-neumorphic-btn hover:shadow-neumorphic-btn-hover active:shadow-neumorphic-btn-active group">
+                <div class="flex items-center space-x-4">
+                    <div class="icon-box w-11 h-11 rounded-xl bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-slate-900 text-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="font-bold text-slate-800 text-base">TikTok</h2>
+                        <p class="text-xs text-slate-500 font-medium">Proceso de estampado y acabados</p>
+                    </div>
+                </div>
+                <div class="arrow-box w-8 h-8 rounded-full bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-sky-600 text-xs">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 4. FACEBOOK -->
+            <a href="https://www.facebook.com/profile.php?id=61594215975886" target="_blank" rel="noopener noreferrer" 
+               class="social-btn neumorphic-link flex items-center justify-between p-4 rounded-2xl bg-skyLight shadow-neumorphic-btn hover:shadow-neumorphic-btn-hover active:shadow-neumorphic-btn-active group">
+                <div class="flex items-center space-x-4">
+                    <div class="icon-box w-11 h-11 rounded-xl bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-blue-600 text-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="font-bold text-slate-800 text-base">Facebook</h2>
+                        <p class="text-xs text-slate-500 font-medium">Comunidad y reseñas de clientes</p>
+                    </div>
+                </div>
+                <div class="arrow-box w-8 h-8 rounded-full bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-sky-600 text-xs">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+            <!-- 5. CORREO ELECTRÓNICO -->
+            <button onclick="copyEmail('printingblanks@gmail.com')" 
+                    class="w-full social-btn neumorphic-link flex items-center justify-between p-4 rounded-2xl bg-skyLight shadow-neumorphic-btn hover:shadow-neumorphic-btn-hover active:shadow-neumorphic-btn-active group cursor-pointer">
+                <div class="flex items-center space-x-4">
+                    <div class="icon-box w-11 h-11 rounded-xl bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-sky-600 text-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="font-bold text-slate-800 text-base">Correo Electrónico</h2>
+                        <p class="text-xs text-slate-500 font-medium">printingblanks@gmail.com</p>
+                    </div>
+                </div>
+                <div class="arrow-box w-8 h-8 rounded-full bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-sky-600 text-xs">
+                    <i class="fa-solid fa-copy"></i>
+                </div>
+            </button>
+
+            <!-- 6. PÁGINA WEB / TIENDA -->
+            <a href="https://tuweb.com" target="_blank" rel="noopener noreferrer" 
+               class="social-btn neumorphic-link flex items-center justify-between p-4 rounded-2xl bg-skyLight shadow-neumorphic-btn hover:shadow-neumorphic-btn-hover active:shadow-neumorphic-btn-active group">
+                <div class="flex items-center space-x-4">
+                    <div class="icon-box w-11 h-11 rounded-xl bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-cyan-600 text-lg group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div class="text-left">
+                        <h2 class="font-bold text-slate-800 text-base">Página Web / Tienda</h2>
+                        <p class="text-xs text-slate-500 font-medium">Explora todos nuestros productos</p>
+                    </div>
+                </div>
+                <div class="arrow-box w-8 h-8 rounded-full bg-skyLight shadow-neumorphic-sm flex items-center justify-center text-sky-600 text-xs">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="text-center pt-2 border-t border-slate-200/60">
+            <p class="text-xs font-medium text-slate-400">
+                © 2026 Printing Blanks. Todos los derechos reservados.
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+        function copyEmail(email) {
+            const aux = document.createElement("input");
+            aux.setAttribute("value", email);
+            document.body.appendChild(aux);
+            aux.select();
+            document.execCommand("copy");
+            document.body.removeChild(aux);
+
+            const toast = document.getElementById("copyToast");
+            toast.classList.remove("opacity-0", "-translate-y-4");
+            toast.classList.add("opacity-100", "translate-y-0");
+
+            setTimeout(() => {
+                toast.classList.remove("opacity-100", "translate-y-0");
+                toast.classList.add("opacity-0", "-translate-y-4");
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
